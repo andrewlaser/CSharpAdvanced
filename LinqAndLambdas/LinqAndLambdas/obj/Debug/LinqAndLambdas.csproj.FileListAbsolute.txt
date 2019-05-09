@@ -1,0 +1,7 @@
+C:\Projects\Sandbox\CSharpAdvanced\LinqAndLambdas\LinqAndLambdas\bin\Debug\LinqAndLambdas.exe.config
+C:\Projects\Sandbox\CSharpAdvanced\LinqAndLambdas\LinqAndLambdas\bin\Debug\LinqAndLambdas.exe
+C:\Projects\Sandbox\CSharpAdvanced\LinqAndLambdas\LinqAndLambdas\bin\Debug\LinqAndLambdas.pdb
+C:\Projects\Sandbox\CSharpAdvanced\LinqAndLambdas\LinqAndLambdas\obj\Debug\LinqAndLambdas.csprojAssemblyReference.cache
+C:\Projects\Sandbox\CSharpAdvanced\LinqAndLambdas\LinqAndLambdas\obj\Debug\LinqAndLambdas.csproj.CoreCompileInputs.cache
+C:\Projects\Sandbox\CSharpAdvanced\LinqAndLambdas\LinqAndLambdas\obj\Debug\LinqAndLambdas.exe
+C:\Projects\Sandbox\CSharpAdvanced\LinqAndLambdas\LinqAndLambdas\obj\Debug\LinqAndLambdas.pdb

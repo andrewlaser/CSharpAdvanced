@@ -1,0 +1,13 @@
+C:\Courses\C# Advanced\Visual Studio Projects\LinqExamples\02. ObjectExamples\bin\Debug\_02.ObjectExamples.exe.config
+C:\Courses\C# Advanced\Visual Studio Projects\LinqExamples\02. ObjectExamples\bin\Debug\_02.ObjectExamples.exe
+C:\Courses\C# Advanced\Visual Studio Projects\LinqExamples\02. ObjectExamples\bin\Debug\_02.ObjectExamples.pdb
+C:\Courses\C# Advanced\Visual Studio Projects\LinqExamples\02. ObjectExamples\obj\Debug\02. ObjectExamples.csproj.CoreCompileInputs.cache
+C:\Courses\C# Advanced\Visual Studio Projects\LinqExamples\02. ObjectExamples\obj\Debug\_02.ObjectExamples.exe
+C:\Courses\C# Advanced\Visual Studio Projects\LinqExamples\02. ObjectExamples\obj\Debug\_02.ObjectExamples.pdb
+C:\Courses\06. C# Advanced\Visual Studio Projects\01. LinqExamples\02. ObjectExamples\bin\Debug\_02.ObjectExamples.exe.config
+C:\Courses\06. C# Advanced\Visual Studio Projects\01. LinqExamples\02. ObjectExamples\bin\Debug\_02.ObjectExamples.exe
+C:\Courses\06. C# Advanced\Visual Studio Projects\01. LinqExamples\02. ObjectExamples\bin\Debug\_02.ObjectExamples.pdb
+C:\Courses\06. C# Advanced\Visual Studio Projects\01. LinqExamples\02. ObjectExamples\obj\Debug\02. ObjectExamples.csproj.CoreCompileInputs.cache
+C:\Courses\06. C# Advanced\Visual Studio Projects\01. LinqExamples\02. ObjectExamples\obj\Debug\_02.ObjectExamples.exe
+C:\Courses\06. C# Advanced\Visual Studio Projects\01. LinqExamples\02. ObjectExamples\obj\Debug\_02.ObjectExamples.pdb
+C:\Courses\06. C# Advanced\Visual Studio Projects\01. LinqExamples\02. ObjectExamples\obj\Debug\02. ObjectExamples.csprojResolveAssemblyReference.cache
