@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{0530199E-6903-4F49-934A-F307EE3FADB3}</ProjectGuid>
+    <ProjectGuid>{8D7C5CAD-DF10-4F32-9EF3-2C6F51A3E7CF}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>LinqAndLambdas</RootNamespace>
-    <AssemblyName>LinqAndLambdas</AssemblyName>
+    <RootNamespace>LambdaExamples</RootNamespace>
+    <AssemblyName>LambdaExamples</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -34,7 +34,6 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -43,11 +42,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Distance.cs" />
-    <Compile Include="Person.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="EntryPoint.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Extensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

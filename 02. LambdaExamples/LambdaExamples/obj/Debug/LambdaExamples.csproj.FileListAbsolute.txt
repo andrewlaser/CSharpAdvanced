@@ -1,0 +1,7 @@
+C:\Courses\06. C# Advanced\Visual Studio Projects\02. LambdaExamples\LambdaExamples\bin\Debug\LambdaExamples.exe.config
+C:\Courses\06. C# Advanced\Visual Studio Projects\02. LambdaExamples\LambdaExamples\bin\Debug\LambdaExamples.exe
+C:\Courses\06. C# Advanced\Visual Studio Projects\02. LambdaExamples\LambdaExamples\bin\Debug\LambdaExamples.pdb
+C:\Courses\06. C# Advanced\Visual Studio Projects\02. LambdaExamples\LambdaExamples\obj\Debug\LambdaExamples.csprojResolveAssemblyReference.cache
+C:\Courses\06. C# Advanced\Visual Studio Projects\02. LambdaExamples\LambdaExamples\obj\Debug\LambdaExamples.csproj.CoreCompileInputs.cache
+C:\Courses\06. C# Advanced\Visual Studio Projects\02. LambdaExamples\LambdaExamples\obj\Debug\LambdaExamples.exe
+C:\Courses\06. C# Advanced\Visual Studio Projects\02. LambdaExamples\LambdaExamples\obj\Debug\LambdaExamples.pdb
