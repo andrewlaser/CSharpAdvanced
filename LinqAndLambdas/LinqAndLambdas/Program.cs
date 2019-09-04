@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Drawing;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -28,98 +29,69 @@ namespace LinqAndLambdas
                 5
             };
 
-            List<Person> people = new List<Person>()
+            List<Person> people = new List<Person>
             {
-                new Person("Name01", 180, 50, Gender.Female),
-                new Person("Name06", 180, 60, Gender.Male),
-                new Person("Name08", 180, 79, Gender.Female),
-                new Person("Name", 150, 78, Gender.Male),
-                new Person("Nam3", 100, 70, Gender.Female),
-                new Person("Name15", 178, 73, Gender.Female),
-                new Person("Name45", 190, 71, Gender.Female),
-                new Person("Name67", 167, 74, Gender.Female),
-                new Person("Name89", 189, 75, Gender.Female),
-                new Person("Name10", 112, 77, Gender.Female),
-                new Person("Name19", 145, 90, Gender.Female)
+                new Person("N1", 160, 100),
+                new Person("N2", 170, 90),
+                new Person("N3", 180, 80),
+                new Person("N4", 190, 70)
             };
 
 
             #region LINQ
+            var someNames = from name in names
+                            where name.Contains("a")
+                            orderby name descending 
+                            select name;
 
-            var getTheNmbers = from number in numbers
-                where number < 10
-                select number;
+            Console.WriteLine(string.Join(", ", someNames));
 
-            var catsWithA = from name in names
-                where name.Contains("a")
-                orderby name
-                select name;
+            var shorties = from p in people
+                where p.Height <= 170
+                orderby p.Height
+                select p.Name;
 
-
-            var fourCharPeolple = from p in people
-                where p.Name.Length > 4
-                orderby p.Name
-                select p;
-
-//            Console.WriteLine(string.Join("\n\n", fourCharPeolple));
+            Console.WriteLine(string.Join("\n", shorties));
 
             var oddNumbers = from n in numbers
                 where n % 2 == 1
                 select n;
 
-            //Console.WriteLine(string.Join(", ", oddNumbers));
+            Console.WriteLine(String.Join(", ", oddNumbers));
 
             #endregion
 
             #region Lambda
 
-            List<int> oddnumbersLambda = numbers.Where(n => (n % 2 == 1)).ToList();
-            //Console.WriteLine (string.Join(", ", oddNumbers));
+            oddNumbers = numbers.Where(n => n % 2 == 1);
+            Console.WriteLine(String.Join(", ", oddNumbers));
 
-            double average = names.Average(n => n.Length);
+            double aver = numbers.Average();
+            Console.WriteLine(aver);
 
-//            Console.WriteLine(numbers.Min(n => n));
+            var allInts = mix.OfType<int>().Where(i => i < 3);
+            Console.WriteLine(string.Join(", ", allInts));
 
-            var allInts = mix.OfType<int>().Where(i => i<3).ToList();
+            var shortPeople = people.Where(p => p.Height < 170).
+                Select(p => p.Height).ToList();
+            Console.WriteLine(string.Join(", ", shortPeople));
 
-//            Console.WriteLine(string.Join(",", allInts));
-
-            var allIntLists = mix.OfType<List<int>>().ToList();
-
-            foreach (var lst in allIntLists)
-            {
-//                Console.WriteLine($" list: {string.Join(", ", lst)}");
-            }
+            
 
             #endregion
 
-            #region Select and Where
-
-
-            var shortPeople = people.Where(person => person.Height < 180).ToList();
-
-            var shortHeights = people.Where(person => person.Height < 180).Select(person => person.Height).OrderBy(height => height);
-            //Console.WriteLine(string.Join(", ", shortPeople));
-            //Console.WriteLine(string.Join(", ", shortHeights));
-
-            //people.ForEach(person=>Console.WriteLine(person));
-
-            //Console.WriteLine(string.Join(", ", numbers));
             numbers.Sort();
-            //Console.WriteLine(string.Join(", ", numbers));
-
-            #endregion
-
-            #region Extensions
+            Console.WriteLine(string.Join(", ", numbers));
 
             Point point1 = new Point(20, 30);
-            Point point2 = new Point(10, 15);
+            Point point2 = new Point(202, 301);
+            Point point3 = new Point(203, 302);
+            Point point4 = new Point(204, 303);
 
-            Distance dist = point1.DistanceTo(point2);
-
-            #endregion
+            Console.WriteLine(point1.DistanceTo(point2));
 
             Console.ReadKey();
+            
         }
     }
 }

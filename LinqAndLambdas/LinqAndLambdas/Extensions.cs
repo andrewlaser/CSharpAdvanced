@@ -1,39 +1,34 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Drawing;
 
 namespace LinqAndLambdas
 {
     public static class Extensions
     {
-        public static Distance DistanceTo(this Point p1, Point p2)
+        public static void Sort(this int[] a)
         {
-            return new Distance()
+            int t;
+            for (int p = 0; p <= a.Length - 2; p++)
             {
-                Xdistance = Math.Abs(p2.X - p1.X),
-                Ydistance = Math.Abs(p2.Y - p1.Y)
-            };
+                for (int i = 0; i <= a.Length - 2; i++)
+                {
+                    if (a[i] > a[i + 1])
+                    {
+                        t = a[i + 1];
+                        a[i + 1] = a[i];
+                        a[i] = t;
+                    }
+                } 
+            }
         }
 
-        public static void Sort(this int[] arr)
+        public static double DistanceTo(this Point p1, Point p2)
         {
-            int temp;
-
-            for (int j = 0; j <= arr.Length - 2; j++)
-            {
-                for (int i = 0; i <= arr.Length - 2; i++)
-                {
-                    if (arr[i] > arr[i + 1])
-                    {
-                        temp = arr[i + 1];
-                        arr[i + 1] = arr[i];
-                        arr[i] = temp;
-                    }
-                }
-            }
+            return Math.Sqrt(Math.Pow(p2.X - p1.X, 2) + Math.Pow(p2.Y - p1.Y, 2));
         }
     }
 }

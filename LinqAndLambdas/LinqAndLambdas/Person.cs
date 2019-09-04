@@ -8,48 +8,22 @@ namespace LinqAndLambdas
 {
     public class Person
     {
-        private string name;
-        private int height;
-        private int weight;
+        public string Name;
+        public int Height;
+        public int Weight;
 
-        private Gender gender;
+        private Gender Gender;
 
-
-        public Person(string name, int height, int weight, Gender gender)
+        public Person(string name, int height, int weight)
         {
-            this.name = name;
-            this.height = height;
-            this.weight = weight;
-            this.gender = gender;
+            Name = name;
+            Height = height;
+            Weight = weight;
         }
 
         public override string ToString()
         {
-            return $"Name: {name} \n height: {height} \n weight: {weight} \n gender: {gender.ToString()}";
-        }
-
-        public Gender Gender
-        {
-            get => gender;
-            set => gender = value;
-        }
-
-        public int Weight
-        {
-            get => weight;
-            set => weight = value;
-        }
-
-        public int Height
-        {
-            get => height;
-            set => height = value;
-        }
-
-        public string Name
-        {
-            get => name;
-            set => name = value;
+            return $"Name: '{Name}'; Height: '{Height}'; Weight: '{Weight}'";
         }
     }
 
