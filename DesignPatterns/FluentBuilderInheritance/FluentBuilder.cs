@@ -1,22 +1,22 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
 
-namespace FluentBuilderInheritance
+namespace DesignPatterns
 {
     public class Person
     {
         public string Name;
+
         public string Position;
-        public decimal Salary;
 
-        public class Builder : PersonJobBuilder<Builder>
+        public DateTime DateOfBirth;
+    
+        public class Builder : PersonBirthDateBuilder<Builder>
         {
-           
+            internal Builder() {}
         }
-
+    
         public static Builder New => new Builder();
 
         public override string ToString()
@@ -33,51 +33,58 @@ namespace FluentBuilderInheritance
         {
             return person;
         }
-
     }
 
-    public class PersonInfoBuilder<T> : PersonBuilder
-        where T : PersonInfoBuilder<T>
+    public class PersonInfoBuilder<SELF> : PersonBuilder
+        where SELF : PersonInfoBuilder<SELF>
     {
-        protected Person Person = new Person();
-
-        public T Called(string name)
+        public SELF Called(string name)
         {
-            Person.Name = name;
-            return (T) this;
-        }
-
-        public T HasSalary(decimal salary)
-        {
-            Person.Salary = salary;
-            return (T) this;
-        }
-
-    }
-
-    public class PersonJobBuilder<T> : PersonInfoBuilder<PersonJobBuilder<T>>
-        where T : PersonJobBuilder<T>
-    {
-        public T WorksAsA(string position)
-        {
-            Person.Position = position;
-            return (T) this;
+            person.Name = name;
+            return (SELF) this;
         }
     }
-    
-    class FluentBuilder
+
+    public class PersonJobBuilder<SELF> 
+        : PersonInfoBuilder<PersonJobBuilder<SELF>>
+        where SELF : PersonJobBuilder<SELF>
     {
+        public SELF WorksAsA(string position)
+        {
+            person.Position = position;
+            return (SELF) this;
+        }
+    }
 
-        //static void Main(string[] args)
-        //{
-        //    var me = Person.New.Called("Andrew").WorksAsA("AQA").HasSalary(1000);
+    // here's another inheritance level
+    // note there's no PersonInfoBuilder<PersonJobBuilder<PersonBirthDateBuilder<SELF>>>!
 
+    public class PersonBirthDateBuilder<SELF> 
+        : PersonJobBuilder<PersonBirthDateBuilder<SELF>>
+        where SELF : PersonBirthDateBuilder<SELF>
+    {
+        public SELF Born(DateTime dateOfBirth)
+        {
+            person.DateOfBirth = dateOfBirth;
+            return (SELF)this;
+        }
+    }
 
-            
+    internal class Program
+    {
+        class SomeBuilder : PersonBirthDateBuilder<SomeBuilder>
+        {
 
+        }
 
-        //    Console.ReadKey();
-
-        //}
+        public static void Main(string[] args)
+        {
+            var me = Person.New
+                .Called("Dmitri")
+                .WorksAsA("Quant")
+                .Born(DateTime.UtcNow)
+                .Build();
+            Console.WriteLine(me);
+        }
     }
 }

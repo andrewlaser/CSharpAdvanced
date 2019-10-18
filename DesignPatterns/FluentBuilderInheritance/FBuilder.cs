@@ -59,13 +59,13 @@ namespace FluentBuilderInheritance
 
     class FBuilder
     {
-        static void Main(string[] args)
-        {
-            var employee = PersonBuilderDirector.NewPerson.SetName("Name").AtPosition("position").Born(DateTime.Now)
-                .Build();
-            Console.WriteLine(employee.ToString());
-            Console.ReadKey();
+        //static void Main(string[] args)
+        //{
+        //    var employee = PersonBuilderDirector.NewPerson.SetName("Name").AtPosition("position").Born(DateTime.Now)
+        //        .Build();
+        //    Console.WriteLine(employee.ToString());
+        //    Console.ReadKey();
 
-        }
+        //}
     }
 }
