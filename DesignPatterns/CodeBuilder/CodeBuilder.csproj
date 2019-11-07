@@ -4,14 +4,13 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{247B5C65-5B78-4AE4-90EB-B50C7E6EF7E5}</ProjectGuid>
+    <ProjectGuid>{4AB8320C-E543-4912-97EC-E0983A49419F}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>FluentBuilderInheritance</RootNamespace>
-    <AssemblyName>FluentBuilderInheritance</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <RootNamespace>CodeBuilder</RootNamespace>
+    <AssemblyName>CodeBuilder</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -43,8 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FBuilder.cs" />
-    <Compile Include="FluentBuilder.cs" />
+    <Compile Include="CodeBuilderRunner.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

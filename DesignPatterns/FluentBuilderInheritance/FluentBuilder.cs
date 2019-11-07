@@ -12,13 +12,6 @@ namespace DesignPatterns
 
         public DateTime DateOfBirth;
     
-        public class Builder : PersonBirthDateBuilder<Builder>
-        {
-            internal Builder() {}
-        }
-    
-        public static Builder New => new Builder();
-
         public override string ToString()
         {
             return $"{nameof(Name)}: {Name}, {nameof(Position)}: {Position}";
@@ -35,56 +28,63 @@ namespace DesignPatterns
         }
     }
 
-    public class PersonInfoBuilder<SELF> : PersonBuilder
-        where SELF : PersonInfoBuilder<SELF>
+    public class PersonInfoBuilder<TSelf> : PersonBuilder
+        where TSelf : PersonInfoBuilder<TSelf>
     {
-        public SELF Called(string name)
+        public TSelf Called(string name)
         {
             person.Name = name;
-            return (SELF) this;
+            return (TSelf) this;
         }
     }
 
-    public class PersonJobBuilder<SELF> 
-        : PersonInfoBuilder<PersonJobBuilder<SELF>>
-        where SELF : PersonJobBuilder<SELF>
+    public class PersonJobBuilder<TSelf> 
+        : PersonInfoBuilder<PersonJobBuilder<TSelf>>
+        where TSelf : PersonJobBuilder<TSelf>
     {
-        public SELF WorksAsA(string position)
+        public TSelf WorksAsA(string position)
         {
             person.Position = position;
-            return (SELF) this;
+            return (TSelf) this;
         }
     }
 
     // here's another inheritance level
-    // note there's no PersonInfoBuilder<PersonJobBuilder<PersonBirthDateBuilder<SELF>>>!
+    // note there's no PersonInfoBuilder<PersonJobBuilder<PersonBirthDateBuilder<TSelf>>>!
 
-    public class PersonBirthDateBuilder<SELF> 
-        : PersonJobBuilder<PersonBirthDateBuilder<SELF>>
-        where SELF : PersonBirthDateBuilder<SELF>
+    public class PersonBirthDateBuilder<TSelf> 
+        : PersonJobBuilder<PersonBirthDateBuilder<TSelf>>
+        where TSelf : PersonBirthDateBuilder<TSelf>
     {
-        public SELF Born(DateTime dateOfBirth)
+        public TSelf Born(DateTime dateOfBirth)
         {
             person.DateOfBirth = dateOfBirth;
-            return (SELF)this;
+            return (TSelf)this;
         }
+    }
+
+    public class PersonBuilderDirector : PersonBirthDateBuilder<PersonBuilderDirector>
+    {
+        public static PersonBuilderDirector New => new PersonBuilderDirector();
     }
 
     internal class Program
     {
-        class SomeBuilder : PersonBirthDateBuilder<SomeBuilder>
-        {
+        //class SomeBuilder : PersonBirthDateBuilder<SomeBuilder>
+        //{
 
-        }
+        //}
 
         public static void Main(string[] args)
         {
-            var me = Person.New
+            var me = PersonBuilderDirector.New
                 .Called("Dmitri")
                 .WorksAsA("Quant")
-                .Born(DateTime.UtcNow)
+                .Born(DateTime.UtcNow).Called("Andrew").WorksAsA("AQA")
                 .Build();
             Console.WriteLine(me);
+
+            Console.ReadLine();
         }
     }
 }

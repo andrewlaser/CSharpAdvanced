@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FluentBuilderInheritance
 {
-    public class Person
+    public class Employee
     {
         public string Name;
         public string Position;
@@ -18,50 +18,53 @@ namespace FluentBuilderInheritance
         }
     }
 
-    public class PersonBuilder<T>: PersonBuilder where T: PersonBuilder<T>
+    public abstract class EmployeeBuilder
+    {
+        protected Employee Employee;
+
+        public EmployeeBuilder()
+        {
+            Employee = new Employee();
+        }
+
+        public Employee Build() => Employee;
+    }
+
+
+    public class EmployeeInfoBuilder<T>: EmployeeBuilder where T: EmployeeInfoBuilder<T>
     {
         public T SetName(string name)
         {
-            Person.Name = name;
+            Employee.Name = name;
             return (T) this;
         }
+    }
 
-        public T AtPosition(string position)
+    public class EmployeePositionBuilder<T> : EmployeeInfoBuilder<EmployeePositionBuilder<T>>
+        where T : EmployeePositionBuilder<T>
+    {
+        public T WorksAs(string position)
         {
-            Person.Position = position;
-            return (T) this;
-        }
-
-        public T Born(DateTime date)
-        {
-            Person.DateOfBirth = date;
+            Employee.Position = position;
             return (T) this;
         }
     }
 
 
-    public abstract class PersonBuilder
+
+   
+
+
+    public class EmployeeBuilderDirector : EmployeePositionBuilder<EmployeeBuilderDirector>
     {
-        protected Person Person;
-
-        public PersonBuilder()
-        {
-            Person = new Person();
-        }
-
-        public Person Build() => Person;
-    }
-
-    public class PersonBuilderDirector : PersonBuilder<PersonBuilderDirector>
-    {
-        public static PersonBuilderDirector NewPerson => new PersonBuilderDirector();
+        public static EmployeeBuilderDirector NewEmployee => new EmployeeBuilderDirector();
     }
 
     class FBuilder
     {
         //static void Main(string[] args)
         //{
-        //    var employee = PersonBuilderDirector.NewPerson.SetName("Name").AtPosition("position").Born(DateTime.Now)
+        //    var employee = EmployeeBuilderDirector.NewEmployee.SetName("Name").WorksAs("position")
         //        .Build();
         //    Console.WriteLine(employee.ToString());
         //    Console.ReadKey();
